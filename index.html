@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0a1020">
+<title>4-AI Hub — единое пространство для идей</title>
+<meta name="description" content="Рабочее пространство для совместной работы с Grok, ChatGPT, Claude и Gemini">
+<link rel="icon" href="assets/brand-logo.png" type="image/png">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="ambient" aria-hidden="true"><span></span><span></span><span></span><div class="ambient-grid"></div></div>
+<div id="logo" class="logo" data-d="0" role="img" aria-label="Логотип 4-AI Hub"><img class="brand-mark" src="assets/brand-logo.png" alt="Логотип 4-AI Hub"></div>
+
+<section id="authScreen" class="auth-screen" hidden>
+  <div class="auth-art">
+    <div class="auth-orbit orbit-one"></div><div class="auth-orbit orbit-two"></div>
+    <img src="assets/brand-logo.png" alt="4-AI Hub" class="auth-logo">
+    <div class="auth-kicker"><span class="live-dot"></span> YOUR AI WORKSPACE</div>
+    <h1>Четыре взгляда.<br><span>Одна сильная идея.</span></h1>
+    <p>Исследуйте, создавайте и доводите проекты до результата вместе с несколькими AI-моделями в одном пространстве.</p>
+    <div class="provider-strip"><span><img src="assets/providers/grok.png" alt="">Grok</span><span><img src="assets/providers/chatgpt.png" alt="">ChatGPT</span><span><img src="assets/providers/claude.png" alt="">Claude</span><span><img src="assets/providers/gemini.png" alt="">Gemini</span></div>
+  </div>
+  <div class="auth-card-wrap"><form id="authForm" class="auth-card">
+    <div class="eyebrow">ЛИЧНОЕ ПРОСТРАНСТВО</div><h2 id="authTitle">Создать аккаунт</h2><p id="authSubtitle">Сохраняйте чаты и возвращайтесь к проектам в любой момент.</p>
+    <label id="nameField" class="field-label">Как к вам обращаться<input id="authName" type="text" maxlength="48" autocomplete="nickname" placeholder="Ваше имя"></label>
+    <label class="field-label">Логин<input id="authUser" type="text" minlength="3" maxlength="32" autocomplete="username" required placeholder="Например, alex_dev"></label>
+    <label class="field-label">Пароль<input id="authPass" type="password" minlength="6" autocomplete="new-password" required placeholder="Не менее 6 символов"></label>
+    <p id="authMessage" class="inline-message" role="status" aria-live="polite"></p>
+    <button id="authSubmit" class="primary wide" type="submit">Создать локальный аккаунт <span>↗</span></button>
+    <p class="auth-switch"><span id="authSwitchText">Уже есть локальный аккаунт?</span> <button type="button" id="authSwitch">Войти</button></p>
+    <div class="local-note"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4.5 6v5.4c0 4.7 3.2 7.7 7.5 9.6 4.3-1.9 7.5-4.9 7.5-9.6V6L12 3Z"/><path d="m9 12 2 2 4-4"/></svg> Аккаунт и проекты хранятся локально в этом браузере</div>
+  </form></div>
+</section>
+
+<header class="topbar" id="topbar" hidden>
+  <button id="mobileMenu" class="icon-button mobile-only" type="button" aria-label="Открыть меню" data-tip="Меню">☰</button>
+  <div class="topbar-title"><span class="crumb">WORKSPACE</span><span id="pageTitle">Новое пространство</span></div>
+  <div class="top-actions">
+    <button id="planBtn" class="plan-button" type="button" data-tip="Сравнить бесплатный и расширенный тариф"><span class="plan-spark">✧</span><span>Plus</span><span class="plan-price">$20</span></button>
+    <button id="keysBtn" class="icon-button" type="button" aria-label="API-ключи" data-tip="Подключить и проверить API-ключи"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="8" cy="15" r="4"/><path d="m11 12 8-8 2 2-2 2 2 2-3 3-2-2-3 3"/></svg></button>
+    <button id="settingsBtn" class="icon-button" type="button" aria-label="Настройки интерфейса" data-tip="Настроить оформление"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1-1.7 2.9-.2-.1a1.7 1.7 0 0 0-1.8.2l-.1.1h-3.4l-.1-.2a1.7 1.7 0 0 0-1.5-1 1.7 1.7 0 0 0-1 .3l-.2.1-2.9-1.7.1-.2a1.7 1.7 0 0 0-.2-1.8l-.1-.1v-3.4l.2-.1a1.7 1.7 0 0 0 1-1.5 1.7 1.7 0 0 0-.3-1l-.1-.2 1.7-2.9.2.1a1.7 1.7 0 0 0 1.8-.2l.1-.1h3.4l.1.2a1.7 1.7 0 0 0 1.5 1 1.7 1.7 0 0 0 1-.3l.2-.1 2.9 1.7-.1.2a1.7 1.7 0 0 0 .2 1.8l.1.1v3.4l-.2.1a1.7 1.7 0 0 0-.8.7Z"/></svg></button>
+    <button id="profileBtn" class="profile-button" type="button" data-tip="Профиль и выход"><span id="profileInitial">A</span><span id="profileName">Аккаунт</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></button>
+  </div>
+</header>
+
+<div id="shell" class="shell" hidden>
+  <aside id="sidebar" class="sidebar">
+    <div class="side-brand"><img src="assets/brand-logo.png" alt=""><div><strong>4-AI <span>HUB</span></strong><small>INTELLIGENCE STUDIO</small></div></div>
+    <button id="newChatBtn" class="new-chat" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg> Новый чат <kbd>⌘ K</kbd></button>
+    <div class="side-label">ПРОСТРАНСТВО</div>
+    <button id="navHome" class="nav-link active" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="3" width="7" height="7" rx="2"/><rect x="3" y="14" width="7" height="7" rx="2"/><rect x="14" y="14" width="7" height="7" rx="2"/></svg> Обзор</button>
+    <button id="navProjects" class="nav-link" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7.5A2.5 2.5 0 0 1 5.5 5H10l2 2h6.5A2.5 2.5 0 0 1 21 9.5v8a2.5 2.5 0 0 1-2.5 2.5h-13A2.5 2.5 0 0 1 3 17.5Z"/></svg> Сохранённые проекты <span id="projectCount" class="count">0</span></button>
+    <div class="history-title"><span class="side-label">ИСТОРИЯ</span><button id="clearSearch" type="button" data-tip="Показать все чаты" aria-label="Сбросить поиск">↻</button></div>
+    <label class="search-box"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 5 5"/></svg><input id="chatSearch" type="search" placeholder="Найти чат…" aria-label="Поиск по чатам"></label>
+    <div id="chatList" class="chat-list"></div>
+    <div class="sidebar-bottom"><button id="helpBtn" class="nav-link" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.8 9a2.4 2.4 0 1 1 4.3 1.5c-1 1-2.1 1.3-2.1 3M12 17h.01"/></svg> Помощь и подключение</button><div class="mini-plan"><div class="mini-plan-top"><span>Текущий тариф</span><span class="free-chip">FREE</span></div><strong>AI Starter</strong><div class="mini-meter"><i></i></div><small id="planFoot">До 4 провайдеров · свои ключи</small><button id="miniUpgrade" type="button">Открыть Plus ↗</button></div></div>
+  </aside>
+
+  <main id="app" class="app" hidden>
+    <div id="workspace" class="workspace">
+      <div id="homeWelcome" class="home-welcome">
+        <div class="welcome-label"><span class="live-dot"></span> AI WORKSPACE / READY</div>
+        <h1>Привет, <span id="welcomeName">создатель</span>.<br><em>Что создадим сегодня?</em></h1>
+        <p class="welcome-copy">От идеи до готового результата — вместе с несколькими моделями, в одном месте.</p>
+        <div class="quick-grid">
+          <button class="quick-card" type="button" data-prompt="Помоги разработать сайт: составь план, предложи архитектуру и подготовь код. Перед выводом проверь согласованность файлов."><span class="quick-icon">⌘</span><strong>Создать сайт</strong><small>Интерфейс, структура, код</small><span class="quick-arrow">↗</span></button>
+          <button class="quick-card" type="button" data-prompt="Проанализируй мою идею, найди слабые места и предложи реалистичный план реализации по шагам."><span class="quick-icon">◈</span><strong>Развить идею</strong><small>План, риски, решения</small><span class="quick-arrow">↗</span></button>
+          <button class="quick-card" type="button" data-prompt="Помоги разобраться с прикреплёнными файлами. Найди ошибки, объясни причины и предложи конкретные исправления."><span class="quick-icon">⌁</span><strong>Разобрать файлы</strong><small>Анализ и исправления</small><span class="quick-arrow">↗</span></button>
+        </div>
+        <div class="welcome-bottom"><div class="connected-summary"><div class="provider-bubbles"><img src="assets/providers/grok.png" alt="Grok"><img src="assets/providers/chatgpt.png" alt="ChatGPT"><img src="assets/providers/claude.png" alt="Claude"><img src="assets/providers/gemini.png" alt="Gemini"></div><span id="connectionSummary">Нейросети не подключены</span><button id="welcomeConnect" type="button">Настроить ↗</button></div><span class="local-save"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h12l3 3v13H4V4Z"/><path d="M8 4v5h8V4M8 20v-7h8v7"/></svg> Автосохранение включено</span></div>
+      </div>
+      <div id="stage" aria-label="Карта подключённых нейросетей"><canvas id="cv" aria-hidden="true"></canvas></div>
+      <section id="chat" class="chat-feed" hidden aria-live="polite"></section>
+      <div id="livePreview" class="live-preview" hidden><div class="preview-head"><div><span class="live-dot"></span><strong>Предпросмотр проекта</strong><small>Изолированный локальный предпросмотр</small></div><div class="preview-actions"><button id="downloadPreviewBtn" class="download-link" type="button">Скачать HTML ↓</button><button id="closePreview" class="icon-button" type="button" aria-label="Закрыть предпросмотр">×</button></div></div><iframe id="previewFrame" title="Предпросмотр созданного интерфейса" sandbox="allow-scripts" referrerpolicy="no-referrer"></iframe></div>
+      <form id="composer" class="composer">
+        <div id="files" class="file-chips" aria-label="Прикреплённые файлы"></div>
+        <textarea id="q" rows="2" placeholder="Опишите задачу или задайте вопрос…" aria-label="Текст задачи"></textarea>
+        <div class="composer-bottom"><div class="composer-tools"><label class="icon-button attach-button" data-tip="Прикрепить файлы" aria-label="Прикрепить файлы"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 11.5 12 20a6 6 0 0 1-8.5-8.5l8.8-8.8a4 4 0 0 1 5.7 5.7L9.3 17a2 2 0 0 1-2.8-2.8l7.8-7.8"/></svg><input id="file" type="file" multiple hidden></label><button id="voiceBtn" class="icon-button" type="button" data-tip="Голосовой ввод" aria-label="Голосовой ввод"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="3" width="6" height="12" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3m-4 0h8"/></svg></button><button id="previewBtn" class="icon-button" type="button" data-tip="Показать HTML-предпросмотр" aria-label="Предпросмотр"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="m9 9-3 3 3 3m6-6 3 3-3 3m-2-7-2 8"/></svg></button><span class="tool-divider"></span><button id="modeBtn" class="mode-button" type="button" data-tip="Выбрать режим работы">◈ <span>Проект</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></button></div><div class="send-group"><button id="stopBtn" class="icon-button stop-button" type="button" data-tip="Остановить задание" aria-label="Остановить" hidden>■</button><button id="sendBtn" class="send-button" type="submit" aria-label="Отправить сообщение" data-tip="Отправить"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 3-7.5 18-3.4-7.1L3 10.5 21 3Z"/><path d="M10.1 13.9 15 9"/></svg></button></div></div>
+        <div class="composer-foot"><span>Enter — новая строка · Ctrl/⌘ + Enter — отправить</span><span id="composerStatus">Ответы сохраняются автоматически</span></div>
+      </form>
+    </div>
+    <aside id="inspector" class="inspector" hidden aria-label="Состояние выбранной нейросети">
+      <div class="inspector-head"><div class="inspector-brand"><div id="inspectorLogo" class="inspector-logo"></div><div><h2 id="inspectorName">Нейросеть</h2><p id="inspectorCompany">Провайдер API</p></div></div><button id="closeInspector" class="icon-button" type="button" aria-label="Закрыть панель">×</button></div>
+      <div id="inspectorState" class="status-pill">Ожидает запрос</div><section class="inspect-block"><h3>Состояние</h3><p id="inspectDoing">Выберите нейросеть на карте.</p></section><section class="inspect-block"><h3>Текущая задача</h3><p id="inspectTask" class="muted">Задача ещё не отправлена.</p></section><section class="inspect-block output-block"><h3>Последний ответ / ошибка</h3><pre id="inspectOutput">Когда нейросеть ответит, результат появится здесь.</pre></section><div class="inspector-footer"><button id="prevProviderBtn" class="secondary" type="button">← Назад</button><button id="nextProviderBtn" class="primary" type="button">Далее →</button></div><button id="downloadChatBtn" class="download-link" type="button">Скачать текущий чат ↓</button>
+    </aside>
+  </main>
+</div>
+
+<section id="onb" class="keys-screen" hidden><div class="keys-head"><button id="backFromKeys" class="icon-button" type="button" aria-label="Назад">←</button><div><span class="eyebrow">ПОДКЛЮЧЕНИЯ</span><h1>Подключите свои модели</h1><p class="muted">Можно начать даже с одного ключа. Остальные провайдеры не обязательны.</p></div></div><div id="cards" class="provider-grid"></div><form id="keys" class="key-form"><div id="inputs" class="key-input-grid"></div><label class="deep-check"><input id="deepCheck" type="checkbox"><span><strong>Тестовая генерация</strong><small>Отправить короткий запрос. Может расходовать API-квоту.</small></span></label><div class="form-actions"><button class="primary" type="submit">Проверить подключения <span>↗</span></button><button id="clearKeysBtn" class="secondary" type="button">Очистить ключи</button></div><p class="privacy">Ключи хранятся в этом браузере. Не размещайте их в репозитории и не передавайте другим.</p><p id="err" class="inline-message" role="status" aria-live="polite"></p></form></section>
+<section id="check" class="check-screen" hidden aria-live="polite"><div class="check-title-row"><div class="spin" aria-hidden="true"></div><div><h2 id="checkTitle">Проверяем доступность API</h2><p id="checkSummary">Каждый провайдер проверяется независимо.</p></div></div><div id="checkResults" class="check-results"></div><button id="checkBack" class="secondary" type="button">Вернуться в пространство</button></section>
+
+<dialog id="dlg" class="modal"></dialog>
+<div id="toastRegion" class="toast-region" aria-live="polite" aria-atomic="true"></div>
+<script src="js/providers.js"></script><script src="js/app.js"></script>
+</body></html>
