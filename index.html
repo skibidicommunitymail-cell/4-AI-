@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#ffffff">
+<title>4-AI Hub</title>
+<meta name="description" content="Совместная работа Grok, ChatGPT, Claude и Gemini в одном окне">
+<link rel="icon" href="assets/brand-logo.png" type="image/png">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="logo" class="logo" data-d="0" role="img" aria-label="Логотип 4-AI Hub">
+  <img class="brand-mark" src="assets/brand-logo.png" alt="Логотип 4-AI Hub">
+</div>
+<header>
+  <button id="keysBtn" class="btn ghost" type="button" hidden>API-ключи и проверка</button>
+</header>
+
+<section id="onb" hidden>
+  <h1 class="wel"><i></i><span>4-AI Hub</span><i></i></h1>
+  <p class="lead">Подключите нужные нейросети. Каждый ключ проверяется отдельно, а временный сбой не отключает остальные узлы.</p>
+  <div id="cards" class="grid"></div>
+  <form id="keys">
+    <div id="inputs" class="grid"></div>
+    <label class="deep-check"><input id="deepCheck" type="checkbox"> <span><strong>Тестовая генерация</strong><small>Отправить короткий тестовый запрос к каждой модели. Может расходовать небольшую часть API-квоты.</small></span></label>
+    <div class="form-actions">
+      <button class="btn" type="submit">Проверить ключи и продолжить</button>
+      <button id="clearKeysBtn" class="btn ghost" type="button">Очистить сохранённые ключи</button>
+    </div>
+  </form>
+  <p class="privacy">Ключи хранятся в localStorage этого браузера. Для безопасности не публикуйте их и не отправляйте вместе с файлами проекта.</p>
+  <p id="err" class="note" role="status" aria-live="polite"></p>
+</section>
+
+<section id="check" hidden aria-live="polite">
+  <div class="check-title-row"><div class="spin" aria-hidden="true"></div><div><h2 id="checkTitle">Проверяем доступность API</h2><p id="checkSummary">Каждый провайдер проверяется независимо.</p></div></div>
+  <div id="checkResults" class="check-results"></div>
+</section>
+
+<main id="app" hidden>
+  <div id="workspace">
+    <div id="stage" aria-label="Карта подключённых нейросетей"><canvas id="cv" aria-hidden="true"></canvas></div>
+    <section id="chat" hidden aria-live="polite"></section>
+    <form id="composer">
+      <div id="files" aria-label="Прикреплённые файлы"></div>
+      <textarea id="q" rows="2" placeholder="Опишите задачу" aria-label="Текст задачи"></textarea>
+      <div class="row">
+        <label class="btn ghost file-btn">Прикрепить файл<input id="file" type="file" multiple hidden></label>
+        <button id="stopBtn" class="btn stop-btn" type="button" hidden>Остановить</button>
+        <button class="btn" type="submit">Отправить</button>
+      </div>
+      <p class="composer-hint">На время одного задания неисправный узел пропускается, а при следующем задании проверяется снова.</p>
+    </form>
+  </div>
+
+  <aside id="inspector" hidden aria-label="Состояние выбранной нейросети">
+    <div class="inspector-head">
+      <div class="inspector-brand"><div id="inspectorLogo" class="inspector-logo"></div><div><h2 id="inspectorName">Нейросеть</h2><p id="inspectorCompany">Провайдер API</p></div></div>
+      <button id="closeInspector" class="icon-btn" type="button" aria-label="Закрыть панель">×</button>
+    </div>
+    <div id="inspectorState" class="status-pill">Ожидает запрос</div>
+    <section class="inspect-block"><h3>Что делает сейчас</h3><p id="inspectDoing">Выберите нейросеть на карте, чтобы увидеть состояние.</p></section>
+    <section class="inspect-block"><h3>Текущая задача</h3><p id="inspectTask" class="muted">Задача ещё не отправлена.</p></section>
+    <section class="inspect-block output-block"><h3>Последний ответ / ошибка</h3><pre id="inspectOutput">Когда нейросеть ответит, результат появится здесь.</pre></section>
+    <div class="inspector-footer"><button id="prevProviderBtn" class="btn ghost" type="button">Назад</button><button id="nextProviderBtn" class="btn" type="button">Далее</button></div>
+    <p class="inspector-hint">Кнопка «Далее» переключает панель на следующую подключённую нейросеть.</p>
+  </aside>
+</main>
+
+<dialog id="dlg"></dialog>
+<script src="js/providers.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
