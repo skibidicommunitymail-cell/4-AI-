@@ -1,5 +1,0 @@
-/*
-  X-Content-Type-Options: nosniff
-  Referrer-Policy: no-referrer
-  X-Frame-Options: DENY
-  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src https://api.openai.com https://api.x.ai https://api.anthropic.com https://generativelanguage.googleapis.com; frame-ancestors 'none'
