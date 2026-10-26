@@ -1,0 +1,11 @@
+{
+  "name": "4-ai-hub",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Dependency-free 4-AI Hub static frontend and Cloudflare Pages Function",
+  "scripts": {
+    "check": "node --check js/providers.js && node --check js/app.js",
+    "test": "node --test tests/*.test.cjs",
+    "verify": "npm run check && npm test"
+  }
+}
